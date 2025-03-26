@@ -11,7 +11,6 @@ export function initWebSocket(httpServer: any) {
     }
   });
 
-  // Middleware for authentication
   io.use(async (socket, next) => {
     const token = socket.handshake.auth.token;
     try {

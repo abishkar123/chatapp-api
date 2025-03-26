@@ -1,6 +1,5 @@
 import express from 'express';
 import http from 'http';
-import mongoose from 'mongoose';
 import { initWebSocket } from './src/websocket/server'
 
 const app = express();
