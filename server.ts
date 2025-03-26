@@ -7,17 +7,24 @@ import Message from "./src/model/Message";
 import { connectDB } from "./src/db/dbconfig";
 import { verifyToken } from "./src/utils/auth";
 
+
+
 dotenv.config();
 const app = express();
 const server = http.createServer(app);
 const wss = new WebSocketServer({ server });
 
+
 app.use(cors());
-app.use(express.json());4
+app.use(express.json());
 
 
 
 connectDB()
+import Chatrouter from "./src/Router/Chatrouter"
+
+app.use("/messages", Chatrouter)
+
 
 wss.on("connection", (ws, req) => {
    const token = req.url?.split("token=")[1];
